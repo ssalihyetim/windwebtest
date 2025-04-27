@@ -1,0 +1,110 @@
+/* Home.module.css - Tech/industrial hero with banner background, big text, micro-animations */
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('http://www.eurometalisleme.com/wp-content/uploads/2023/02/Talasli-imalat-Eurometal.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2vw 5rem 2vw;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #003366cc 60%, #222c 100%);
+  z-index: 1;
+}
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 1s cubic-bezier(.23,1.02,.44,.99);
+}
+.heroTitle {
+  font-size: 3.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.4rem;
+  line-height: 1.1;
+  text-shadow: 0 8px 30px #00336699;
+  animation: popIn 1.2s cubic-bezier(.23,1.02,.44,.99);
+}
+.heroSubtitle {
+  font-size: 1.65rem;
+  margin-bottom: 2.2rem;
+  font-weight: 500;
+  color: #e0eafc;
+  text-shadow: 0 2px 8px #00336688;
+  animation: fadeInUp 1.4s cubic-bezier(.23,1.02,.44,.99);
+}
+.heroActions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  animation: fadeInUp 1.7s cubic-bezier(.23,1.02,.44,.99);
+}
+.heroBtn {
+  background: #ff4a1c;
+  color: #fff;
+  font-size: 1.22rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 1.1rem 2.5rem;
+  box-shadow: 0 2px 16px #00336644;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  outline: none;
+  will-change: transform;
+}
+.heroBtn:hover, .heroBtn:focus {
+  background: #003366;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px #00336655;
+}
+.heroBtnSecondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: 700;
+  transition: border 0.18s, color 0.18s, background 0.18s;
+}
+.heroBtnSecondary:hover, .heroBtnSecondary:focus {
+  background: #fff;
+  color: #003366;
+  border-color: #003366;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Lazy layout & micro-animations for sections */
+.section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.7s cubic-bezier(.23,1.02,.44,.99), transform 0.7s cubic-bezier(.23,1.02,.44,.99);
+}
+.section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .heroTitle { font-size: 2.2rem; }
+  .heroSubtitle { font-size: 1.1rem; }
+  .hero { padding: 3.5rem 1vw 2.5rem 1vw; }
+}
