@@ -1,30 +1,30 @@
-/* Home.module.css - Tech/industrial hero with banner background, big text, micro-animations */
+/* Home.module.css - Tech/industrial hero with banner background, big text, micro-animations, improved column alignment, lighter overlay */
 
 .hero {
   min-height: 60vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   position: relative;
   background: url('http://www.eurometalisleme.com/wp-content/uploads/2023/02/Talasli-imalat-Eurometal.jpg') center/cover no-repeat;
   color: #fff;
-  text-align: center;
-  padding: 6rem 2vw 5rem 2vw;
+  text-align: left;
+  padding: 7rem 2vw 6rem 2vw;
   overflow: hidden;
 }
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, #003366cc 60%, #222c 100%);
+  background: linear-gradient(120deg, #00336677 60%, #2227 100%);
   z-index: 1;
 }
 .heroContent {
   position: relative;
   z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 650px;
+  margin: 0 2rem 0 0;
   animation: fadeInUp 1s cubic-bezier(.23,1.02,.44,.99);
 }
 .heroTitle {
@@ -33,7 +33,8 @@
   letter-spacing: 1.5px;
   margin-bottom: 1.4rem;
   line-height: 1.1;
-  text-shadow: 0 8px 30px #00336699;
+  color: #fff;
+  text-shadow: 0 8px 30px #00336699, 0 2px 8px #000a;
   animation: popIn 1.2s cubic-bezier(.23,1.02,.44,.99);
 }
 .heroSubtitle {
@@ -47,7 +48,7 @@
 .heroActions {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 1.5rem;
   animation: fadeInUp 1.7s cubic-bezier(.23,1.02,.44,.99);
 }
@@ -83,6 +84,127 @@
   color: #003366;
   border-color: #003366;
 }
+.heroQuoteBox {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.96);
+  color: #003366;
+  border-radius: 14px;
+  box-shadow: 0 4px 32px #00336633;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  min-width: 340px;
+  max-width: 440px;
+  margin-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1.3s cubic-bezier(.23,1.02,.44,.99);
+}
+.heroQuoteBox h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  color: #003366;
+}
+.heroQuoteBox label {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #003366;
+}
+.heroQuoteBox input[type="file"] {
+  margin-bottom: 1rem;
+}
+.heroQuoteBox input[type="text"],
+.heroQuoteBox input[type="email"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccd6e0;
+  margin-bottom: 1rem;
+  font-size: 1.08rem;
+}
+.heroQuoteBox button {
+  background: #003366;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.16s;
+}
+.heroQuoteBox button:hover {
+  background: #ff4a1c;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.7s cubic-bezier(.23,1.02,.44,.99), transform 0.7s cubic-bezier(.23,1.02,.44,.99);
+  text-align: center;
+}
+.section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.cardsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin: 2.5rem 0;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #00336622;
+  padding: 2.5rem 1.5rem;
+  width: 290px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px #00336633;
+}
+.card img {
+  margin-bottom: 1.1rem;
+}
+.card h3 {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.4rem;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 1vw 2.5rem 1vw;
+  }
+  .heroContent, .heroQuoteBox {
+    margin: 0;
+    max-width: 98vw;
+    min-width: unset;
+  }
+  .heroQuoteBox {
+    margin-top: 2.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .heroTitle { font-size: 2.2rem; }
+  .heroSubtitle { font-size: 1.1rem; }
+  .hero { padding: 3.5rem 1vw 2.5rem 1vw; }
+  .cardsRow { gap: 1.2rem; }
+  .card { width: 96vw; max-width: 340px; }
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: none; }
@@ -90,21 +212,4 @@
 @keyframes popIn {
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
-}
-
-/* Lazy layout & micro-animations for sections */
-.section {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.7s cubic-bezier(.23,1.02,.44,.99), transform 0.7s cubic-bezier(.23,1.02,.44,.99);
-}
-.section.visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 900px) {
-  .heroTitle { font-size: 2.2rem; }
-  .heroSubtitle { font-size: 1.1rem; }
-  .hero { padding: 3.5rem 1vw 2.5rem 1vw; }
 }
