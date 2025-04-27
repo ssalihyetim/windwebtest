@@ -1,0 +1,27 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: #f7f9fa;
+  color: #222;
+}
+main {
+  min-height: 70vh;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+  font-weight: 700;
+  color: #003366;
+  margin-top: 0;
+}
+a {
+  color: #003366;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

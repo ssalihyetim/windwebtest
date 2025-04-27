@@ -1,0 +1,131 @@
+/* Header.module.css - Dropdowns on hover for nav, subdropdowns for materials */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.5vw;
+  background: #003366;
+  color: #fff;
+  box-shadow: 0 2px 8px #00336622;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.logo a {
+  color: #fff;
+  font-size: 1.65rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.active {
+  background: #fff;
+  color: #003366 !important;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  cursor: pointer;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  color: #fff;
+  background: transparent;
+  outline: none;
+  border: none;
+  display: inline-block;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 24px #00336622;
+  z-index: 100;
+  border-radius: 7px;
+  padding: 0.5rem 0;
+  top: 110%;
+  left: 0;
+}
+.dropdown:hover .dropdownContent,
+.dropdown:focus-within .dropdownContent {
+  display: block;
+}
+.dropdownContent a {
+  color: #003366;
+  padding: 0.55rem 1.2rem;
+  display: block;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.01rem;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+}
+.dropdownContent a:hover {
+  background: #f7f9fa;
+  color: #003366;
+}
+/* Subdropdown for materials */
+.subDropdown {
+  position: relative;
+}
+.subDropbtn {
+  font-weight: 600;
+  color: #003366;
+  padding: 0.45rem 1.2rem 0.45rem 1.2rem;
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+.subDropdownContent {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 180px;
+  background: #fff;
+  box-shadow: 0 4px 16px #00336622;
+  border-radius: 7px;
+  z-index: 101;
+  padding: 0.3rem 0;
+}
+.subDropdown:hover .subDropdownContent,
+.subDropdown:focus-within .subDropdownContent {
+  display: block;
+}
+.subDropdownContent a {
+  color: #003366;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.98rem;
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .nav {
+    gap: 0.7rem;
+  }
+  .dropdownContent, .subDropdownContent {
+    min-width: 140px;
+  }
+}
